@@ -41,5 +41,48 @@ int main() {
 
   // -------------
 
+
+   unsigned int uInt = 80;
+   int *uIntIP = &uInt;
+   char *uIntCP = &uInt;
+
+   printf("p: %p p points to: %d\n", uIntIP, *uIntIP);
+   printf("p: %p p points to: %c\n", uIntCP, *uIntCP);
+
+   printf("\n------------\n\n");
+
+   // -------------
+
+   printf("unassigned int in dec: %x\n", uInt);
+   printf("unassigned int in hex: %u\n", uInt);
+
+   printf("unassigned int in dec || byte0: %hhu, byte1: %hhu, byte2: %hhu, byte3: %hhu\n", *uIntCP, *(uIntCP + 1), *(uIntCP + 2), *(uIntCP + 3));
+   printf("unassigned int in hex || byte0: %hhx, byte1: %hhx, byte2: %hhx, byte3: %hhx\n", *uIntCP, *(uIntCP + 1), *(uIntCP + 2), *(uIntCP + 3));
+
+   printf("\n------------\n\n");
+
+   // -------------
+
+   int ind;
+   for (ind = 0; ind < 4; ind++) {
+     *(uIntCP + ind) += 1;
+     printf("uInt in Hex: %x || uInt in Dec %u\n", uInt, uInt);
+   }
+
+   printf("(HEX) || byte0: %hhx, byte1: %hhx, byte2: %hhx, byte3: %hhx\n", *uIntCP, *(uIntCP + 1), *(uIntCP + 2), *(uIntCP + 3));
+   printf("(HEX) || byte0: %hhu, byte1: %hhu, byte2: %hhu, byte3: %hhu\n", *uIntCP, *(uIntCP + 1), *(uIntCP + 2), *(uIntCP + 3));
+
+   printf("\n------------\n\n");
+
+   // -------------
+
+   for (ind= 0; ind< 4; ind++) {
+     *(uIntCP + ind) += 16;
+     printf("uInt in Hex: %x || uInt in Dec %u\n", uInt, uInt);
+   }
+
+   printf("(HEX) || byte0: %hhx, byte1: %hhx, byte2: %hhx, byte3: %hhx\n", *uIntCP, *(uIntCP + 1), *(uIntCP + 2), *(uIntCP + 3));
+   printf("(HEX) || byte0: %hhu, byte1: %hhu, byte2: %hhu, byte3: %hhu\n", *uIntCP, *(uIntCP + 1), *(uIntCP + 2), *(uIntCP + 3));
+
   return 0;
 }
